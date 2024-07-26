@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  </noscript>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"
+    media="print" onload="this.media='all'"> <noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+  </noscript>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/green/pace-theme-center-radar.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'"> <noscript>
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/green/pace-theme-center-radar.min.css">
+  </noscript>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"
+    defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+    integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"
+    integrity="sha512-2cbsQGdowNDPcKuoBd2bCcsJky87Mv0LEtD/nunJUgk6MOYTgVMGihS/xCEghNf04DPhNiJ4DZw5BxDd1uyOdw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <style>
+    :root {
+      --principal: #68ffca;
+      --principal2: #0bd793;
+      --principallight: #54ffe2d7;
+      --secundario: #e50277;
+      --secundariolight: #e50251;
+    }
+
+    .img-bg {
+      background-image: -webkit-image-set(url("cuadrado.avif") type("image/avif"), url("cuadrado.png") type("image/png"));
+      background-image: image-set("cuadrado.avif" type("image/avif"), "cuadrado.png" type("image/png"));
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .carousel-inner img {
+      object-fit: cover;
+      /* Asegurarse de que la imagen cubra el área completa sin distorsionarla */
+      height: 100%;
+      /* Ajusta la imagen al tamaño del contenedor */
+      display: block;
+      margin: auto;
+      /* Centra la imagen horizontalmente */
+    }
+
+    .bacab-bg-white {
+      background-color: #d9d9d9;
+      /* Puedes usar valores HEX, RGB, RGBA, nombres de colores, etc. */
+    }
+
+    .bacab-bg-dark {
+      background-color: rgb(41, 41, 41);
+      /* Puedes usar valores HEX, RGB, RGBA, nombres de colores, etc. */
+    }
+
+    .bacab-bg-red {
+      background-color: rgb(253, 0, 135);
+      /* Puedes usar valores HEX, RGB, RGBA, nombres de colores, etc. */
+    }
+
+    .bacab-bg-yellow {
+      background-color: #c1a32c;
+      /* Puedes usar valores HEX, RGB, RGBA, nombres de colores, etc. */
+    }
+
+    .bacab-bg-green {
+      background-color: #0bce8d;
+      /* Puedes usar valores HEX, RGB, RGBA, nombres de colores, etc. */
+    }
+
+    .bacab-spawn {
+      border: 10px solid;
+      border-image-source: linear-gradient(to right, #4C999B, #9F001C, #FFEE00);
+      /* Colores de verde maya, rojo maya y amarillo maya */
+      border-image-slice: 1;
+    }
+
+    .bacab-title {
+      background: linear-gradient(45deg, #68ffca, #68ff75);
+      /* Estos colores son aproximados a tonos mayas, pero puedes ajustarlos según tus preferencias */
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 3rem;
+    }
+
+    .bacab-title-cream {
+      background: linear-gradient(45deg, #ffeba8, #ead693);
+      /* Estos colores son aproximados a tonos mayas, pero puedes ajustarlos según tus preferencias */
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 3rem;
+    }
+
+    .bacab-title-red {
+      background: linear-gradient(45deg, #ffa8df, #d974d5);
+      /* Estos colores son aproximados a tonos mayas, pero puedes ajustarlos según tus preferencias */
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 3rem;
+    }
+
+    .bacab-title-orange {
+      background: linear-gradient(45deg, #ea3111, #af260e);
+      /* Estos colores son aproximados a tonos mayas, pero puedes ajustarlos según tus preferencias */
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 3rem;
+    }
+
+    .bacab-title-small-cream {
+      background: linear-gradient(45deg, #ffeba8, #edda9c);
+      /* Estos colores son aproximados a tonos mayas, pero puedes ajustarlos según tus preferencias */
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 2rem;
+    }
+
+    .bacab-title-small-pink {
+      background: linear-gradient(45deg, #e50277, #cc066c);
+      /* Estos colores son aproximados a tonos mayas, pero puedes ajustarlos según tus preferencias */
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 20px;
+    }
+
+    .bacab-title-small-white {
+      background: linear-gradient(45deg, #ffffff, #dedede);
+      /* Estos colores son aproximados a tonos mayas, pero puedes ajustarlos según tus preferencias */
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 20px;
+    }
+
+    .bacab-title-small-black {
+      background: linear-gradient(45deg, #000000, #202020);
+      /* Estos colores son aproximados a tonos mayas, pero puedes ajustarlos según tus preferencias */
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 2rem;
+    }
+
+    .bacab-title-medium-green {
+      background: linear-gradient(45deg, #68ffca, #68ff75);
+      /* Estos colores son aproximados a tonos mayas, pero puedes ajustarlos según tus preferencias */
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 37px;
+    }
+
+    .bacab-title-fade {
+      background: linear-gradient(45deg, #e50277, #68ffca);
+      /* Estos colores son aproximados a tonos mayas, pero puedes ajustarlos según tus preferencias */
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 3rem;
+    }
+
+    @keyframes rainbow {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      100% {
+        background-position: 100% 50%;
+      }
+    }
+
+    .rainbow-bg {
+      background: linear-gradient(70deg, #9F001C, #9F001C, #b100cc, #b100cc, #9F001C, #9F001C, #b100cc, #b100cc, #9F001C, #9F001C, #b100cc, #b100cc);
+      background-size: 1400% 1400%;
+      animation: rainbow 20s infinite;
+    }
+
+    .bacab-title2 {
+      background: linear-gradient(45deg, #68ffca, #e50277);
+      /* Estos colores son aproximados a tonos mayas, pero puedes ajustarlos según tus preferencias */
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 2rem;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .bacab-text {
+      text-align: justify;
+      font-size: 28px;
+      line-height: 2;
+      font-family: 'Verdana', sans-serif;
+    }
+
+    .bacab-text-small {
+      text-align: justify;
+      font-size: 18px;
+      line-height: 2;
+      font-family: 'Verdana', sans-serif;
+      color: #ffffff;
+    }
+
+    .bacab-text-small-black {
+      text-align: justify;
+      font-size: 18px;
+      line-height: 2;
+      font-family: 'Verdana', sans-serif;
+      color: #000000;
+    }
+
+    .bacab-map {
+      background-image: url(/static/img/log.jpg);
+      background-size: contain;
+      /* Cambiado de 'cover' a 'contain' */
+      background-repeat: no-repeat;
+      /* Evitar que la imagen se repita */
+      background-position: center;
+      /* Centra la imagen de fondo en el contenedor */
+      position: relative;
+      width: 100%;
+      height: 100%;
+      /*filter: blur(5px);*/
+    }
+
+    .bacab-t {
+      background-image: url(/static/img/c3.jpeg);
+      background-size: contain;
+      /* Cambiado de 'cover' a 'contain' */
+      background-repeat: no-repeat;
+      /* Evitar que la imagen se repita */
+      background-position: center;
+      /* Centra la imagen de fondo en el contenedor */
+      position: relative;
+      width: 100%;
+      height: 100%;
+      /*filter: blur(5px);*/
+    }
+
+    .bacab-img-round {
+      /* Ajusta el tamaño de la imagen */
+      width: 170px;
+      height: 260px;
+      /* Asegura que la imagen cubra el contenedor sin deformarse */
+      object-fit: cover;
+      /* Redondea las esquinas */
+      border-radius: 15px;
+      /* ajusta según la curvatura deseada */
+      /* Crea un borde con imagen degradada */
+      border: 8px solid transparent;
+      /* ajusta el ancho del borde según lo desees */
+      /* Usa border-image para aplicar un degradado */
+      /* El degradado va de verde (#008000) a rojo (#FF0000) a crema (#f5deb3) */
+      border-image: linear-gradient(to right, #008000, #FF0000, #f5deb3) 1;
+      /* Mantén esto si quieres evitar que el borde afecte las dimensiones externas de la caja */
+      box-sizing: border-box;
+      /* Para asegurarse de que el borde redondeado y el degradado se apliquen correctamente */
+      overflow: hidden;
+    }
+
+    /* No olvides agregar un contenedor si la imagen no está sola, para aplicar correctamente el overflow hidden */
+    .bacab-img-container {
+      width: 170px;
+      /* Ajusta al ancho del elemento */
+      height: 260px;
+      /* Ajusta al alto del elemento */
+      border-radius: 15px;
+      /* Asegúrate de que esto coincida con border-radius de la imagen */
+      overflow: hidden;
+      /* Esconde cualquier parte de la imagen que se salga del borde redondeado */
+    }
+
+    .btn-primary {
+      --bs-btn-color: #fff;
+      --bs-btn-bg: #e50277;
+      --bs-btn-border-color: #e50277;
+      --bs-btn-hover-color: #ba0041aa;
+      --bs-btn-hover-bg: #be0062;
+      --bs-btn-hover-border-color: #e50277;
+      --bs-btn-focus-shadow-rgb: 49, 132, 253;
+      --bs-btn-active-color: #e50277;
+      --bs-btn-active-bg: #be0062d6;
+      --bs-btn-active-border-color: #ba0041aa;
+      --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+      --bs-btn-disabled-color: #fff;
+      --bs-btn-disabled-bg: #e50277;
+      --bs-btn-disabled-border-color: #e50277;
+    }
+
+    .btn-danger {
+      --bs-btn-color: #fff;
+      --bs-btn-bg: #00e6a9;
+      --bs-btn-border-color: #00e6a9;
+      --bs-btn-hover-color: #fff;
+      --bs-btn-hover-bg: #0bd7a8;
+      --bs-btn-hover-border-color: #0bd7a8;
+      --bs-btn-focus-shadow-rgb: 49, 132, 253;
+      --bs-btn-active-color: #fff;
+      --bs-btn-active-bg: #00d7b4d7;
+      --bs-btn-active-border-color: #00d7b4d7;
+      --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+      --bs-btn-disabled-color: #fff;
+      --bs-btn-disabled-bg: #00e6a9;
+      --bs-btn-disabled-border-color: #00e6a9;
+    }
+
+    h1 {
+      font-family: "Century Gothic", Arial, sans-serif;
+    }
+
+    .esperanza {
+      border-radius: 17px;
+    }
+
+    .gordito {
+      width: 100%;
+    }
+
+    .bacab-blur {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 50px;
+    }
+
+    .iblanco {
+      color: #ffffff;
+    }
+
+    .iazul {
+      color: var(--principal);
+    }
+
+    .irojo {
+      color: var(--secundario);
+    }
+
+    .swal-overlay {
+      background-color: var(--principal);
+    }
+
+    .contorna {
+      border: 2px solid var(--secundario);
+      /* Define el color y el grosor del borde */
+      border-radius: 15px;
+      /* Hace que los bordes sean redondos */
+    }
+
+    .square-image {
+      width: 245px;
+      /* Define el ancho deseado para tus imágenes cuadradas */
+      height: 245px;
+      /* Define la altura deseada para tus imágenes cuadradas */
+      overflow: hidden;
+      /* Oculta cualquier parte de la imagen que se desborde del contenedor */
+    }
+
+    .square-image img {
+      width: 100%;
+      /* Asegura que la imagen ocupe todo el espacio disponible dentro del contenedor */
+      height: auto;
+      /* Mantiene la proporción de la imagen sin distorsionarla */
+    }
+
+    .bacabs-image img {
+      width: auto;
+      /* Asegura que la imagen ocupe todo el espacio disponible dentro del contenedor */
+      height: 300px;
+      /* Mantiene la proporción de la imagen sin distorsionarla */
+    }
+
+    .tlayuda {
+      width: 324px;
+      /* Define el ancho deseado para tus imágenes cuadradas */
+      height: 324px;
+      /* Define la altura deseada para tus imágenes cuadradas */
+      overflow: hidden;
+      /* Oculta cualquier parte de la imagen que se desborde del contenedor */
+    }
+
+    .tlayuda img {
+      width: 100%;
+      /* Asegura que la imagen ocupe todo el espacio disponible dentro del contenedor */
+      height: auto;
+      /* Mantiene la proporción de la imagen sin distorsionarla */
+    }
+
+    .p80 {
+      width: 90%;
+      /* Personaliza el ancho según tus necesidades */
+      margin: 0 auto;
+      /* Centra horizontalmente el div */
+    }
+
+    .barrita {
+      height: 60vh;
+      /* Altura es el 60% de la altura de la ventana */
+      overflow-y: auto;
+      /* Permite el desplazamiento vertical si es necesario */
+    }
+
+    .number-input {
+      display: flex;
+      align-items: center;
+    }
+
+    .number-input button {
+      height: 40px;
+      width: 30px;
+      background-color: #F1F1F1;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .number-input input[type=number] {
+      border: none;
+      text-align: center;
+      width: 50px;
+      height: 40px;
+    }
+
+    .despair {
+      border-radius: 17px;
+      background-color: #ffffff;
+    }
+
+    .btn-purple {
+      background-color: #ae23ff;
+    }
+
+    .btn-magenta {
+      background-color: #eb0fa5;
+    }
+
+    .btn-black {
+      background-color: #000000;
+    }
+
+    .btn-danger {
+      background-color: #da1515;
+    }
+
+    .bigshow {
+      font-size: 100px;
+    }
+
+    .midshow {
+      font-size: 17px;
+    }
+
+    .custom-input {
+      background-color: #161616;
+      color: #ffffff;
+      /* Este es el color primary de Bootstrap */
+      border-color: #272727;
+      /* Este es el color primary de Bootstrap */
+    }
+
+    .custom-input:focus {
+      background-color: rgb(0, 0, 0);
+      color: var(--principal);
+      border-color: var(--principal);
+      /* Este es el color primary de Bootstrap */
+      box-shadow: 0 0 0 0.2rem var(--principallight);
+      /* Este es el estilo de foco de Bootstrap con el color primary */
+    }
+
+    .custom-op:hover {
+      background-color: rgb(0, 0, 0);
+    }
+
+    .menu:hover {
+      background-color: var(--principal);
+    }
+
+    .deslice::-webkit-slider-thumb {
+      width: 20px;
+      /* Ajusta según lo necesites */
+      height: 25px;
+      /* Asegúrate de que sea un valor igual al del width para que sea redondo */
+      background-color: var(--principal);
+      border-radius: 50%;
+      /* Hace que sea redondo */
+      cursor: pointer;
+      /* Cambia el cursor a una mano cuando está sobre el thumb */
+      -webkit-appearance: none;
+      /* Necesario para que los estilos se apliquen en webkit/browsers basados en Chrome/Safari */
+    }
+
+    .deslice {
+      -webkit-appearance: none;
+      /* Elimina el estilo por defecto en webkit/browsers basados en Chrome/Safari */
+      height: 5px;
+      /* Puedes ajustarlo a tu gusto */
+      background-color: #000000;
+      /* Puedes ajustarlo a tu gusto */
+      outline: none;
+      /* Elimina el borde que aparece al seleccionar el input */
+      cursor: pointer;
+      /* Cambia el cursor a una mano cuando está sobre el slider */
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes big {
+      0% {
+        transform: scale(1.1);
+      }
+
+      50% {
+        transform: scale(1.1);
+      }
+
+      100% {
+        transform: scale(1.1);
+      }
+    }
+
+    .big {
+      animation: big 2s infinite;
+    }
+
+    @keyframes shrink {
+      0% {
+        transform: scale(0.9);
+      }
+
+      50% {
+        transform: scale(0.9);
+      }
+
+      100% {
+        transform: scale(0.9);
+      }
+    }
+
+    .shrink {
+      animation: shrink 2s infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+        ;
+      }
+
+      100% {
+        transform: rotate(360deg);
+        ;
+      }
+    }
+
+    .spin {
+      animation: spin 1s infinite;
+    }
+
+    @keyframes popup {
+      0% {
+        opacity: 0;
+      }
+
+      25% {
+        opacity: 1;
+      }
+
+      75% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .logo {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(45deg, #e50277, #68ffca);
+      border-radius: 50%;
+    }
+
+    .bola {
+      width: 100px;
+      height: 100px;
+      background-color: rgb(0, 255, 217);
+      border-radius: 50%;
+      animation: rebote 2s infinite;
+    }
+
+    @keyframes rebote {
+
+      0%,
+      20%,
+      50%,
+      100% {
+        transform: translateY(0) scaleY(1);
+      }
+
+      40% {
+        transform: translateY(-80px) scaleY(1.5);
+      }
+
+      60% {
+        transform: translateY(0) scaleY(0.8);
+      }
+    }
+
+    .doctor {
+      animation: rebote 3s infinite;
+    }
+
+    .popup {
+      animation: popup 3s;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .fadeIn {
+      animation: fadeIn 2s;
+    }
+
+    .fadeIn2 {
+      animation: fadeIn 3s;
+    }
+
+    .fadeIn3 {
+      animation: fadeIn 4s;
+    }
+
+    .mi-input::-moz-placeholder {
+      color: #555555;
+    }
+
+    .mi-input:-ms-input-placeholder {
+      color: #555555;
+    }
+
+    .mi-input::-webkit-input-placeholder {
+      color: #555555;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inview/1.0.0/jquery.inview.js"
+    integrity="sha512-iT74C80IPqrdN648Fgydf0UT02BzECMIx/ZMZJq11CqjhGCWmRt87vJJW4pASVPFJFfMG21xHyy7KG40oHt4cg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+  <script> $(document).ready(function () { Pace.options = { ajax: false, }; $(".conocenos").click(function () { window.location.href = "us"; }); $(document).on("mouseenter", ".pulsblue", function () { $(this).addClass("btn-primary pulse"); }).on("mouseleave", ".pulsblue", function () { $(this).removeClass("btn-primary pulse"); }); function isInViewport(el) { const rect = el.getBoundingClientRect(); return (rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth)); } function watchElementInViewport(className) { const elements = document.getElementsByClassName(className); if (elements.length === 0) return; checkVisibility(); window.addEventListener("scroll", checkVisibility); function checkVisibility() { Array.from(elements).forEach((el) => { if (isInViewport(el)) { el.classList.add("pulse"); } else { el.classList.remove("pulse"); } }); } } watchElementInViewport("urias"); }); </script>
+  <title>Spatial and Urban Data Science Club</title>
+</head>
+
+<body class="bg-black g-0">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top fadeIn" style="background-color: #202529b2">
+    <div class="container-fluid"> <a class="navbar-brand" href="#">
+        <div class="row">
+          <div class="col-3 d-flex h-100 align-items-center justify-content-start mb-0">
+            <div class="">
+              <picture>
+                <source srcset="Logo1.avif" type="image/avif">
+                <source srcset="Logo1.png" type="image/png"> <img src="Logo1.png" alt="Bacab" class="img-fluid"
+                  style="max-width: 90px">
+              </picture>
+            </div>
+          </div>
+          <div class="col-6 d-flex h-100 align-items-center justify-content-start mt-3">
+            <h1 class="text-white">Bacabes Analytics</h1>
+          </div>
+        </div>
+      </a>
+      <div class="navbar-nav">
+        <li class="nav-item"> <button class="btn text-white ms-3 me-4 m-1 px-3 esperanza pulsblue" id="galery">
+            <div class="mb-0 ms-1 me-1">Galery</div>
+          </button> </li>
+        <li class="nav-item"> <button class="btn text-white ms-3 me-4 m-1 px-3 esperanza pulsblue" id="repository">
+            <div class="mb-0 ms-1 me-1">Repository</div>
+          </button> </li>
+        <li class="nav-item"> <button class="btn text-white ms-3 me-4 m-1 px-3 esperanza pulsblue" id="community">
+            <div class="mb-0 ms-1 me-1">Community</div>
+          </button> </li>
+      </div>
+    </div>
+  </nav>
+  <div id="texto_bg" class="container-fluid mt-2 ms-2 g-0">
+    <div id="cuerpo_bg" class="mt-2 container-fluid g-0 fadeIn">
+      <div name="area_cuerpo" class="row">
+        <div class="col-0 col-sm-0"></div>
+        <div class="col-11 col-sm-12 ms-3 ms-sm-0 text-start shadow-sm rounded-5"> <br><br><br><br>
+          <div id="Verdadero cuerpo_main" class="mt-3 container-fluid">
+            <div name="titulo" class="container-fluid g-0">
+              <div name="base-de-cuerpo-interno" class="container-fluid g-0">
+                <div class="row">
+                  <div class="col-0 col-sm-0"></div>
+                  <div name="escribe-el-texto-aqui" class="col-12 col-sm-12 ms-5">
+                    <div class="row">
+                      <div class="col-12">
+                        <div id="seccion0" class="container-fluid g-0 mt-5 mb-3 ms-4 img-bg">
+                          <h1 class="bacab-title-medium-green mt-4"> FROM THE BOTTOM OF OUR LAND...</h1>
+                          <h1 class="bacab-title-cream">SPATIAL AND URBAN DATA SCIENCE CLUB </h1>
+                          <div class="row">
+                            <div class="col-7">
+                              <h5 class="text-white bacab-text mt-5"> We embrace our identity and the richness of
+                                Mexican talent. We unite in a multidisciplinary space for students who share a purpose.
+                                For that, we work together on projects that tackle urban and spatial challenges in our
+                                environment, with the goal of providing our targeted efforts to aid in solving the
+                                pressing issues that afflict our people and society. </h5> <br><br><br>
+                              <div class="d-flex justify-content-start">
+                                <!--<button href="/us" class="btn text-white ms-3 me-4 m-1 px-3 esperanza btn-primary pulse conocenos"> <div class="mb-0 ms-1 me-1"><h5 class="m-2">Community</h5></div> </button>-->
+                              </div>
+                            </div>
+                            <div class="col-3 text-center">
+                              <div class="d-none justify-content-center">
+                                <picture>
+                                  <source srcset="delgado.avif" type="image/avif">
+                                  <source srcset="delgado.jpg" type="image/png">
+                                  <img src="delgado.jpg" alt="Bacab" class="img-fluid ms-4" style="max-width: 280px">
+                                </picture>
+                              </div>
+                            </div>
+                          </div> <br><br><br>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-0 col-sm-1"></div>
+                      <div class="col-10">
+                        <div id="seccion1" class="container-fluid g-0 mt-5 mb-3">
+                          <h1 class="bacab-title"> The Bacab leyend...</h1>
+                          <h5 class="text-white bacab-text mt-5"> In an age when the earth was young and the heavens
+                            unsteady, there existed four colossal Bacabes, Cantzicnal, Hosan-Ek, Hobnil, and Zac-Cimi,
+                            titans of the cardinal directions, painted in the sacred colors of the vibrant Yucatán.
+                            Birthed by the divine will of Itzamná and Ixchel, these guardians were bestowed with the
+                            formidable task of supporting the sky, holding aloft the celestial dome upon their broad and
+                            unyielding shoulders. Their duty was vital, for the world was yet a tempestuous sea, a
+                            canvas awaiting the order of existence. </h5>
+                          <div class="col-12 text-center mt-5">
+                            <div class="d-flex justify-content-center">
+                              <picture>
+                                <source srcset="5e.avif" type="image/avif">
+                                <source srcset="5e.png" type="image/png"> <img src="5e.png" alt="Bacab"
+                                  class="img-fluid ms-4" style="max-width: 70%" />
+                              </picture>
+                            </div>
+                          </div>
+                          <h5 class="text-white bacab-text mt-5"> Yet, shadowed by Kukulkan's envy, a cataclysmic battle
+                            erupted, threatening to rend the seams of reality. With the fury of the elements, the Bacabs
+                            warred against the serpent's legion, their song of creation clashing with the discord of
+                            oblivion. Through their valor and might, they cast the dark ones into the abyss, restoring
+                            harmony. Their legend, a tale of endurance and strength, became the foundation upon which
+                            the Mayans built their understanding of the cosmos—knowing that each tremor of the earth is
+                            but a testament to the Bacabs' eternal vigil, the keepers of the world's celestial balance.
+                          </h5> <br><br><br>
+                        </div>
+                        <div id="seccion2" class="container-fluid g-0 mt-5 mb-3">
+                          <h1 class="bacab-title-cream mb-5"> Our five pilars...</h1>
+                          <div class="row"> <!-- Column 1 -->
+                            <div class="col-4">
+                              <div class="shadow-sm rounded-4 bacab-bg-red" style="color: white;">
+                                <div class="p-5">
+                                  <div class="d-flex justify-content-center"> <i class="fa-solid fa-fire fa-3x"></i>
+                                  </div>
+                                  <h3 class="text-center mt-3">Hobnil: Geourban Hardware Solutions</h3>
+                                  <p class="mt-4"> We forge the technology that attunes to the city's pulse. Our sensors
+                                    gather whispers from the urban canopy, transfiguring them into digital insights, to
+                                    delve into and comprehend the essence of our surroundings, echoing the ancient
+                                    Maya's harmony with the natural world. </p>
+                                </div>
+                              </div>
+                            </div> <!-- Column 2 -->
+                            <div class="col-4">
+                              <div class="shadow-sm rounded-4 bacab-bg-white" style="color: black;">
+                                <div class="p-5">
+                                  <div class="d-flex justify-content-center"> <i class="fa-solid fa-wind fa-3x"></i>
+                                  </div>
+                                  <h3 class="text-center mt-3">Cantzicnal: Geographic and Urban Data Science</h3>
+                                  <p class="mt-4">We select and arrange the data that narrates the saga of our cities.
+                                    We prepare urban information to unveil pathways to enhance the spaces we inhabit,
+                                    echoing the ancient Maya's dedication to shaping their environment with intention
+                                    and insight. </p>
+                                </div>
+                              </div>
+                            </div> <!-- Column 3 -->
+                            <div class="col-4">
+                              <div class="shadow-sm rounded-4 bacab-bg-dark" style="color: white;">
+                                <div class="p-5">
+                                  <div class="d-flex justify-content-center"> <i class="fa-solid fa-spa fa-3x"></i>
+                                  </div>
+                                  <h3 class="text-center mt-3">Zac-Cimi: Predictive Modeling and Geospatial Analysis
+                                  </h3>
+                                  <p class="mt-4">We breathe life into data. We craft models that unveil the tapestry of
+                                    urban trends, guiding us in the quest for astute solutions for the community, akin
+                                    to the Maya who, through their deep understanding of the stars and earth, foresaw
+                                    the rhythms of their world.</p>
+                                </div>
+                              </div>
+                            </div> <!-- Column 4 -->
+                          </div>
+                          <div class="row">
+                            <div class="col-6 mt-4">
+                              <div class="shadow-sm rounded-4 bacab-bg-green" style="color: white;">
+                                <div class="p-5">
+                                  <div class="d-flex justify-content-center"> <i
+                                      class="fa-solid fa-cloud-moon-rain fa-3x"></i> </div>
+                                  <h3 class="text-center mt-3">Pak-it: Geographic Connectivity Hub</h3>
+                                  <p class="mt-4">We weave together ideas and people. Building relationships that enable
+                                    us to transport our solutions from the lab into the vivid reality, collaborating
+                                    with others to enhance the spaces of our cities, much like the Maya interconnected
+                                    their communities and knowledge to elevate their society.</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-6 mt-4">
+                              <div class="shadow-sm rounded-4 bacab-bg-yellow" style="color: white;">
+                                <div class="p-5">
+                                  <div class="d-flex justify-content-center"> <i class="fa-solid fa-mountain fa-3x"></i>
+                                  </div>
+                                  <h3 class="text-center mt-3">Hosan-Ek: Spatial and Urban Geo-visualization</h3>
+                                  <p class="mt-4"> We render data visible through maps and graphics that speak with
+                                    clarity. With our visual tools, the insights within the data are revealed, allowing
+                                    all to see the narratives told about our world, akin to the Maya who illustrated
+                                    their knowledge on carvings and codices, making the complex understandable. </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div> <br><br><br>
+                        </div>
+                        <div id="seccion3" class="container-fluid g-0 mt-5 mb-3">
+                          <h1 class="bacab-title-red mb-5"> Our community...</h1>
+                          <div class="row mb-5" name="miembro1">
+                            <div class="col-4">
+                              <div class="row">
+                                <div class="col-6">
+                                  <div class="d-flex justify-content-start">
+                                    <div class="bacab-img-container ">
+                                      <picture>
+                                        <source srcset="p1.avif" type="image/avif">
+                                        <source srcset="p1.jpeg" type="image/jpeg"> <img src="p1.jpeg"
+                                          class="bacab-img-round">
+                                      </picture>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-6">
+                                  <h1 class="bacab-title-small-pink mb-5 mt-5">Angel Hernández Hernández</h1>
+                                  <h1 class="bacab-title-small-white"> Expertise: Circuits and signals</h1>
+                                    <h1 class="bacab-title-small-white"> Area: Hobnil </h1>
+                                      <h1 class="bacab-title-small-white"> Role: Lead </h1>
+                                        <h1 class="bacab-title-small-white"> Email: None </h1>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-4">
+                              <div class="row">
+                                <div class="col-6">
+                                  <div class="d-flex justify-content-start">
+                                    <div class="bacab-img-container ">
+                                      <picture>
+                                        <source srcset="p2.avif" type="image/avif">
+                                        <source srcset="p2.jpeg" type="image/jpeg"> <img src="p2.jpeg"
+                                          class="bacab-img-round">
+                                      </picture>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-6">
+                                  <h1 class="bacab-title-small-pink mb-5 mt-5">Josué Adalid Juárez Botello</h1>
+                                  <h1 class="bacab-title-small-white"> Expertise: Networks and operative systems </h1>
+                                    <h1 class="bacab-title-small-white"> Area: Hosan-Ek </h1>
+                                      <h1 class="bacab-title-small-white"> Role: Lead </h1>
+                                        <h1 class="bacab-title-small-white"> Email: None </h1>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-4">
+                              <div class="row">
+                                <div class="col-6">
+                                  <div class="d-flex justify-content-start">
+                                    <div class="bacab-img-container ">
+                                      <picture>
+                                        <source srcset="p4.avif" type="image/avif">
+                                        <source srcset="p4.jpeg" type="image/jpeg"> <img src="p4.jpeg"
+                                          class="bacab-img-round">
+                                      </picture>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-6">
+                                  <h1 class="bacab-title-small-pink mb-5 mt-5">Rodrigo Gerardo Trejo Arriaga</h1>
+                                  <h1 class="bacab-title-small-white"> Expertise: Machine learning and modeling </h1>
+                                    <h1 class="bacab-title-small-white"> Area: Zac-Cimi </h1>
+                                      <h1 class="bacab-title-small-white"> Role: Lead </h1>
+                                        <h1 class="bacab-title-small-white"> Email: None </h1>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row mb-5" name="miembro2">
+                            <div class="col-4">
+                              <div class="row">
+                                <div class="col-6">
+                                  <div class="d-flex justify-content-start">
+                                    <div class="bacab-img-container ">
+                                      <picture>
+                                        <source srcset="p3.avif" type="image/avif">
+                                        <source srcset="p3.jpeg" type="image/jpeg"> <img src="p3.jpeg"
+                                          class="bacab-img-round">
+                                      </picture>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-6">
+                                  <h1 class="bacab-title-small-pink mb-5 mt-5"> Sebastián Guzmán Toscano</h1>
+                                  <h1 class="bacab-title-small-white"> Expertise: Data analysis </h1>
+                                    <h1 class="bacab-title-small-white"> Area: Cantzicnal </h1>
+                                      <h1 class="bacab-title-small-white"> Role: Lead </h1>
+                                        <h1 class="bacab-title-small-white"> Email: None </h1>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-4">
+                              <div class="row">
+                                <div class="col-6">
+                                  <div class="d-flex justify-content-start">
+                                    <div class="bacab-img-container ">
+                                      <picture>
+                                        <source srcset="p5.avif" type="image/avif">
+                                        <source srcset="p5.jpeg" type="image/jpeg"> <img src="p5.jpeg"
+                                          class="bacab-img-round">
+                                      </picture>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-6">
+                                  <h1 class="bacab-title-small-pink mb-5 mt-5">Eidan Owen Plata Salinas</h1>
+                                  <h1 class="bacab-title-small-white"> Expertise: Graphics and user experience</h1>
+                                    <h1 class="bacab-title-small-white"> Area: Pak-it </h1>
+                                      <h1 class="bacab-title-small-white"> Role: Lead </h1>
+                                        <h1 class="bacab-title-small-white"> Email: None </h1>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-4">
+                              <div class="row">
+                                <div class="col-6">
+                                  <div class="d-flex justify-content-start">
+                                    <div class="bacab-img-container ">
+                                      <picture>
+                                        <source srcset="p6.avif" type="image/avif">
+                                        <source srcset="p6.jpeg" type="image/jpeg"> <img src="p6.jpeg"
+                                          alt="Descripción de la imagen" class="bacab-img-round">
+                                      </picture>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-6">
+                                  <h1 class="bacab-title-small-pink mb-5 mt-5">Roberto Eswart Zagal Flores</h1>
+                                  <h1 class="bacab-title-small-white"> Expertise: All </h1>
+                                    <h1 class="bacab-title-small-white"> Area: All </h1>
+                                      <h1 class="bacab-title-small-white"> Role: Director </h1>
+                                        <h1 class="bacab-title-small-white"> Email: None </h1>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row mb-5" name="miembro3"> </div> <br><br><br>
+                        </div>
+                      </div>
+                      <div class="col-0 col-sm-1"></div>
+                    </div>
+                  </div>
+                  <div class="col-0 col-sm-1"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-0 col-sm-0"></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
